@@ -1,0 +1,11 @@
+<ol class="pet-list">
+  {{#each pets as |pet|}}
+  <li>
+    {{> pet-info pet }}
+  </li>
+  {{/each}}
+</ol>
+
+{{#if loggedIn}}
+<script src="/javascript/like.js"></script>
+{{/if}}
