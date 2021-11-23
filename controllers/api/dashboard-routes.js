@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 
 })
 
-// get all liked dogs
+// get all liked pets
 router.get('/', (req, res) => {
 
 })
