@@ -5,7 +5,7 @@ const sequelize = require('../config/connection');
 class Pet extends Model {}
 
 // create fields/columns for Post model
-Post.init(
+Pet.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -16,7 +16,11 @@ Post.init(
         name: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
+        species: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }   
     },
     {
         sequelize,
