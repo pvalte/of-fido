@@ -1,19 +1,28 @@
-const User = require('./User');
-const Pet = require('./Pet');
-const Like = require('./Like');
+const Users = require('./Users');
+const Pets = require('./Pets');
+const Likes = require('./Likes');
 
 //likes - many to many relationship between users and pets
-User.belongsToMany(Pet, {
-    through: Like,
-    as: 'liked_pets',
-    foreignKey: 'user_id'
+Users.belongsToMany(Pets, {
+    through: Likes,
+    as: 'uid',
+    foreignKey: 'userId',
+   // onDelete: 'SET NULL'
 });
 
-Pet.belongsToMany(User, {
-    through: Like,
-    as: 'liked_pets',
-    foreignKey: 'pet_id'
+Pets.belongsToMany(Users, {
+    through: Likes,
+    as: 'pid',
+    foreignKey: 'petId'
 });
 
+Users.hasMany(Likes, {
+    foreignKey: 'userId'
+  });
+  
+  Likes.belongsTo(Users, {
+    foreignKey: 'userId',
+ 
+  });
 
-module.exports = { User, Pet, Like };
+module.exports = { Users, Pets, Likes };
