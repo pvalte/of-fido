@@ -5,6 +5,6 @@ const petRoutes = require('./pet-routes');
 
 router.use('/dashboard', dashRoutes);
 router.use('/pets', petRoutes);
-router.use('/pet', singlePetRoute);
+// router.use('/pet', singlePetRoute);
 
 module.exports = router;

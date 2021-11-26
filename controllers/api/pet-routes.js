@@ -1,4 +1,4 @@
-const router = router('express').Router();
+const router = require('express').Router();
 const { Pets, Likes } = require("../../models");
 
 
