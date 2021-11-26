@@ -1,12 +1,12 @@
 const router = router('express').Router();
-const { Pet, Like } = require("../../models");
+const { Pets, Likes } = require("../../models");
 
 
 // routes for api/pets
 // get all pets module 14 activity 22
 router.get('/', (req, res) => {
-    Pet.findAll({
-        attributes: ['name', 'species']
+    Pets.findAll({
+        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
     }).then(dbPetData => res.json(dbPetData))
     .catch(err => {
         console.log(err);
@@ -15,15 +15,15 @@ router.get('/', (req, res) => {
 });
 
 // get pets based on their species
-router.get('/category/:species', (req, res) => {
-    Pet.findAll({
+router.get('/category/:type', (req, res) => {
+    Pets.findAll({
         where: {
-            species: req.params.species
+            type: req.params.type
         },
-        attributes: ['name']
+        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
     }).then(dbPetData => {
         if (!dbPetData) {
-            res.status(404).json({ message: `There are no ${species} at our center :(`});
+            res.status(404).json({ message: `There are no ${type}'s at our center :(`});
             return;
         }
         res.json(dbPetData);
@@ -35,12 +35,12 @@ router.get('/category/:species', (req, res) => {
 });
 
 // get a single pet
-router.get('/:id', (req, res) => {
-    Pet.findOne({
+router.get('/:petId', (req, res) => {
+    Pets.findOne({
         where: {
-            id: req.params.id
+            petId: req.params.petId
         },
-        attributes: ['name']
+        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
     }).then(dbPetData => {
         if (!dbPetData) {
             res.status(404).json({ message: 'No pet with this id found' });
@@ -56,9 +56,13 @@ router.get('/:id', (req, res) => {
 
 // route to create a pet
 router.post('/', (req, res) => {
-    Pet.create({
-        name: req.body.name,
-        species: req.body.species
+    Pets.create({
+        petname: req.body.petname,
+        age: req.body.age,
+        sex: req.body.sex,
+        type: req.body.type,
+        breed: req.body.breed,
+        description: req.body.description
     }).then(dbPetData => res.json(dbPetData))
     .catch(err => {
         console.log(err);
@@ -68,7 +72,7 @@ router.post('/', (req, res) => {
 
 // put request /api/pets/like
 router.put('/like', (req, res) => {
-    Pet.like(req.body, { Like })
+    Pets.like(req.body, { Likes })
     .then(dbPetData => res.json(dbPetData))
     .catch(err => {
         console.log(err);
@@ -77,10 +81,20 @@ router.put('/like', (req, res) => {
 })
 
 // put request in case an animal needs to get updated or changed at all
-router.put('/:id', (req, res) => {
-    Pet.update(
+router.put('/:petId', (req, res) => {
+    Pets.update(
         {
-            name: req.body.name
+            petname: req.body.petname,
+            age: req.body.age,
+            sex: req.body.sex,
+            type: req.body.type,
+            breed: req.body.breed,
+            description: req.body.description 
+        },
+        {
+            where: {
+                petId: req.body.petId
+            }
         }
     )
     .then(dbPetData => {

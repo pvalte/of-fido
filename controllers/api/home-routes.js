@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { Users } = require('../../models');
 
 // post route for sign up/create a user
 router.post('/signup', (req, res) => {
-    User.create({
+    Users.create({
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        passwordHash: req.body.passwordHash
     })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
@@ -17,7 +17,7 @@ router.post('/signup', (req, res) => {
 
 // post route for login/ expect something like {name: 'name', email: 'email', password: 'password'}
 router.post('/login', (req, res) => {
-    User.findOne({
+    Users.findOne({
         where: {
             email: req.body.email
         }
