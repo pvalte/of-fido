@@ -47,7 +47,7 @@ Likes.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        initialAutoIncrement=1000,
+        //initialAutoIncrement=1000,
         modelName: 'likes'
     }
 );
