@@ -14,24 +14,24 @@ router.get('/', (req, res) => {
 });
 
 // // // get a single pet
-// // router.get('/:petId', (req, res) => {
-// //     Pets.findOne({
-// //         where: {
-// //             petId: req.params.petId
-// //         },
-// //         attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
-// //     }).then(dbPetData => {
-// //         if (!dbPetData) {
-// //             res.status(404).json({ message: 'No pet with this id found' });
-// //             return;
-// //         }
-// //         res.json(dbPetData);
-// //     })
-// //     .catch(err => {
-// //         console.log(err);
-// //         res.status(500).json(err);
-// //     })
-// // });
+router.get('/:petId', (req, res) => {
+    Pets.findOne({
+        where: {
+            petId: req.params.petId
+        },
+        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
+    }).then(dbPetData => {
+        if (!dbPetData) {
+            res.status(404).json({ message: 'No pet with this id found' });
+            return;
+        }
+        res.json(dbPetData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+});
 
 // route to create a pet
 router.post('/', (req, res) => {
@@ -48,14 +48,24 @@ router.post('/', (req, res) => {
 })
 
 // // // put request /api/pets/like
-// // router.put('/like', (req, res) => {
-// //     Pets.like(req.body, { Likes })
-// //     .then(dbPetData => res.json(dbPetData))
-// //     .catch(err => {
-// //         console.log(err);
-// //         res.status(500).json(err);
-// //     })
-// // })
+router.put('/like', (req, res) => {
+    Likes.create({
+        uid: req.body.uid,
+        pid: req.body.pid
+    }).then(() => {
+        return Pets.findOne({
+            where: {
+                id: req.body.petId
+            },
+            attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
+        })
+        .then(dbPetData => res.json(dbPetData))
+        .catch(err => {
+            console.log(err);
+            res.status(400).json(err);
+        })
+    })
+})
 
 // // // put request in case an animal needs to get updated or changed at all
 // // router.put('/:petId', (req, res) => {

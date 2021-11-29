@@ -1,28 +1,24 @@
 const router = require('express').Router();
 const { Users, Pets, Likes } = require('../models');
+const withAuth = require('../utils/auth');
 
-// routes for api/dashboard
 
-// get userinfo
-router.get('/', (req, res) => {
-    Users.findAll({
-        attributes: { exclude: ['passwordHash', 'registeredAt', 'lastLogin', 'profile'] }
-    }).then(dbUserData => res.json(dbUserData))
+// get all pets the user liked
+router.get('/', withAuth, (req, res) => {
+    Pets.findAll({
+        where: {
+            pid: req.sessions.userId
+        },
+        attributes: ['petId', 'petname', 'sex']
+    })
+    .then(dbPetData => {
+        const pets = dbPetData.map(pet => pet.get({ plain: true }))
+        res.render('dashboard', { pets, loggedIn: true })
+    })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     })
 })
-
-// get all liked pets
-// router.get('/', (req, res) => {
-//     User.findAll({
-//         include: [
-//             {
-
-//             }
-//         ]
-//     })
-// })
 
 module.exports = router;
