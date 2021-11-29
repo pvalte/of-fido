@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Users, Pets, Likes } = require('../../models');
+const { Users, Pets, Likes } = require('../models');
 
 // routes for api/dashboard
 

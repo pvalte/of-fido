@@ -40,16 +40,16 @@ Pets.init(
         type: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [10]
-            }
+            // validate: {
+            //     len: [10]
+            // }
         },
         breed: {
             type: DataTypes.STRING,
             allowNull: true,
-            validate: {
-                len: [45]
-            }
+            // validate: {
+            //     len: [45]
+            // }
         },
         description: {
             type: DataTypes.TEXT,
