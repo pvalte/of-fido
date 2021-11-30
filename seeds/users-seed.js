@@ -2,7 +2,7 @@ const { Users } = require('../models');
 
 const usersdata = [
   {
-   userId:10230,    
+  // userId:10230,    
    username: 'testUser01',
    email: 'testuser01@example.com',
    passwordHash: '123456789',
@@ -11,7 +11,7 @@ const usersdata = [
    profile: 'testuser01'
   },
   {
-    userId:10231,     
+   // userId:10231,     
     username: 'testUser02',
    email: 'testuser02@example.com',
    passwordHash: '444446789',
@@ -20,7 +20,7 @@ const usersdata = [
    profile: 'testuser22'
   },
   {
-    userId:10233,    
+   // userId:10233,    
     username:'testUser03',
    email: 'testuser03@example.com',
    passwordHash: '123455555',
@@ -29,7 +29,7 @@ const usersdata = [
    profile: 'Adam123'
   },
   {
-    userId:10234,    
+    //userId:10234,    
     username:'testUser04',
     email: 'testuser04@example.com',
     passwordHash: '100001289',
@@ -38,7 +38,7 @@ const usersdata = [
     profile: 'usertest1'
   },
   {
-    userId:10235,    
+    //userId:10235,    
     username:'testUser05',
     email: 'testuser05@example.com',
     passwordHash: '383456712',
@@ -47,7 +47,7 @@ const usersdata = [
     profile: 'avatar01'
   },
   {
-    userId:10236,     
+    //userId:10236,     
     username:'testUser06',
     email: 'testuser06@example.com',
     passwordHash: '92005A789',
@@ -56,7 +56,7 @@ const usersdata = [
     profile: 'minimeme'
   },
   {
-    userId:10237,     
+    //userId:10237,     
     username:'testUser07',
     email: 'testuser07@example.com',
     passwordHash: '111222333',
@@ -65,7 +65,7 @@ const usersdata = [
     profile: 'JohnDoe'
   },
   {
-    userId:10238,    
+    //userId:10238,    
     username:'testUser08', 
     email: 'testuser08@example.com',
     passwordHash: 'Abc123987',
@@ -74,7 +74,7 @@ const usersdata = [
     profile: 'JaneDoe'
   },
   {
-    userId:10239,    
+    //userId:10239,    
     username:'testUser09',  
     email: 'testuser09@example.com',
     passwordHash: 'Def05A111',
@@ -83,7 +83,7 @@ const usersdata = [
     profile: 'mellowYellow'
   },
   {
-    userId:10240,     
+    //userId:10240,     
     username:'testUser10', 
     email: 'testuser10@example.com',
     passwordHash:'234897abc', 
