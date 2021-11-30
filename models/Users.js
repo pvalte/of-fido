@@ -11,6 +11,7 @@ Users.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
+            initialAutoIncrement: 10230,
             validate: {
                 len: [6]
             }
@@ -55,7 +56,7 @@ Users.init(
     
     {
         sequelize,
-        timestamps: true,
+        timestamps: false,
         //initialAutoIncrement=10230,
         freezeTableName: true,
         underscored: true,

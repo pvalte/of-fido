@@ -1,36 +1,36 @@
 const { Pets } = require('../models');
 
 const petsdata = [
-  {
-    //petId: NULL,    
-    petName:'Sandy', 
+  {   
+    petId: 500130,
+    petname:'Sandy', 
     age: 2,
     sex: 'F',
     type: 'Dog', 
     breed: 'Mixed',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-  },
+},
   {
-    //petId: NULL,    
-    petName:'Lido',
+    petId: 500131,     
+    petname:'Lido',
     age: 5,
     sex: 'M',
     type: 'Dog', 
     breed: 'Poodle',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.'
   },
-  {
-   // petId: NULL,    
-    petName:'Lido',
-    age: 5,
+   {
+   petId: 500132,     
+   petname:'Abby',
+    age: 1,
     sex: 'M',
     type: 'Dog', 
-    breed: 'Poodle',
+    breed: 'Mixed',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.'
   },
   {
-    //petId: NULL,    
-    petName:'Cinnamon ',
+    petId: 500133,     
+    petname:'Cinnamon ',
     age: 7, 
     sex: 'F',
     type: 'Cat', 
@@ -38,8 +38,8 @@ const petsdata = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.'
   },
   {
-    //petId: NULL,    
-    petName: 'Muray', 
+    petId: 500134,     
+    petname: 'Muray', 
     age: 1, 
     sex: 'M',
     type: 'Cat', 
@@ -47,8 +47,8 @@ const petsdata = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.'
   },
   {
-    //petId: NULL,    
-    petName: 'Ori', 
+    petId: 500135,     
+    petname: 'Ori', 
     age:  3, 
     sex: 'F', 
     type: 'Other', 
@@ -56,8 +56,8 @@ const petsdata = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.'
   },
   {
-   // petId: NULL,    
-    petName: 'Zwili',
+    petId: 500136,    
+    petname: 'Zwili',
     age:  4, 
     sex: 'M', 
     type: 'Other', 
@@ -65,8 +65,8 @@ const petsdata = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.'
   },
   {
-   // petId: NULL,    
-    petName: 'Liam',
+   petId: 500137,    
+   petname: 'Liam',
     age:  10, 
     sex: 'M', 
     type: 'Dog', 
@@ -74,8 +74,8 @@ const petsdata = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.'
   },
   {
-    //petId: NULL,    
-    petName: 'Adele', 
+    petId: 500138,     
+    petname: 'Adele', 
     age:  12, 
     sex: 'F', 
     type: 'Dog', 
@@ -83,8 +83,8 @@ const petsdata = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.'
   },
   {
-    //petId: NULL,    
-    petName: 'Julianne', 
+  petId: 500139,     
+  petname: 'Julianne', 
     age:  .6,  
     sex: 'F', 
     type: 'Cat',   
@@ -92,8 +92,8 @@ const petsdata = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.' 
   },
   {
-    //petId: NULL,    
-    petName: 'Keto', 
+  petId: 500140,     
+  petname: 'Keto', 
     age:  1, 
     sex: 'M', 
     type: 'Cat',   
@@ -101,8 +101,8 @@ const petsdata = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.' 
   },
   {
-    //petId: NULL,    
-    petName: 'Auqua',
+   petId: 500141,     
+   petname: 'Auqua',
     age:  1, 
     sex: 'F', 
     type: 'Other',    
@@ -110,8 +110,8 @@ const petsdata = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.' 
   },
   {
-   // petId: NULL,    
-    petName: 'Copper', 
+  petId: 500142,    
+  petname: 'Copper', 
     age: 2, 
     sex: 'M', 
     type: 'Other',    
@@ -119,8 +119,8 @@ const petsdata = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.' 
   },
   {
-   // petId: NULL,    
-    petName: 'Bobo', 
+  petId: 500143,     
+  petname: 'Bobo', 
     age: .5, 
     sex: 'M', 
     type: 'Cat',      
@@ -128,15 +128,15 @@ const petsdata = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.' 
   },
   {
-   // petId: NULL,    
-    petName: 'Princess', 
+    petId: 500144,     
+    petname: 'Princess', 
     age: .6,   
     sex: 'F', 
     type: 'Dog',       
     breed: 'German Shepard', 
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.' 
   }
-];
+ ];
 
 const seedPets = () => Pets.bulkCreate(petsdata);
 
