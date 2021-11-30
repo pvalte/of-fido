@@ -5,7 +5,7 @@ const { Pets, Likes } = require('../../models');
 // get all pets module 14 activity 22
 router.get('/', (req, res) => {
     Pets.findAll({
-        attributes: ['petname', 'age', 'sex']
+        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
     }).then(dbPetData => res.json(dbPetData))
     .catch(err => {
         console.log(err);

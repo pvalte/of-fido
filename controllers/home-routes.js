@@ -7,10 +7,10 @@ router.get('/', (req, res) => {
 
 // render the login template if the user is not already logged in
 router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/');
-        return;
-    }
+    // if (req.session.loggedIn) {
+    //     res.redirect('/');
+    //     return;
+    // }
     res.render('login');
 });
 
