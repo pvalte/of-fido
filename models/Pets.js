@@ -11,7 +11,6 @@ Pets.init(
             type: DataTypes.BIGINT,
             allowNull: false,
             primaryKey: true,
-            initialAutoIncrement: 500130,
             autoIncrement: true,
             validate: {
                 len: [6]
@@ -63,6 +62,7 @@ Pets.init(
         freezeTableName: true,
         timestamps: false,
         underscored: true,
+        initialAutoIncrement: 500130,
         modelName: 'pets'
     }
 );

@@ -7,7 +7,6 @@ Likes.init({
     lid: {
         type: DataTypes.BIGINT,
        autoIncrement: true,
-       initialAutoIncrement: 100,
         allowNull: false,
         primaryKey: true,
         validate: {
@@ -42,6 +41,7 @@ Likes.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
+    initialAutoIncrement: 100,
     modelName: 'likes'
 });
 

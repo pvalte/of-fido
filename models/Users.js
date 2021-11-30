@@ -11,7 +11,6 @@ Users.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-            initialAutoIncrement: 10230,
             validate: {
                 len: [6]
             }
@@ -59,6 +58,7 @@ Users.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
+        initialAutoIncrement: 10230,
         modelName: 'users'
     }
 );
