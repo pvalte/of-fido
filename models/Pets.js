@@ -62,7 +62,6 @@ Pets.init(
         sequelize,
         freezeTableName: true,
         timestamps: false,
-        //initialAutoIncrement=500130,
         underscored: true,
         modelName: 'pets'
     }
