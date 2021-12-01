@@ -6,6 +6,7 @@ class Likes extends Model { }
 Likes.init({
     lid: {
         type: DataTypes.BIGINT,
+       autoIncrement: true,
         allowNull: false,
         primaryKey: true,
         validate: {
@@ -18,10 +19,10 @@ Likes.init({
         validate: {
             len: [6]
         },
-        references: {
-            model: 'users',
-            key: 'userId'
-        }
+        // references: {
+        //     model: 'users',
+        //     key: 'userId'
+        // }
     },
     pid: {
         type: DataTypes.BIGINT,
@@ -29,10 +30,10 @@ Likes.init({
         validate: {
             len: [6]
         },
-        references: {
-            model: 'pets',
-            key: 'petId'
-        }
+        // references: {
+        //     model: 'pets',
+        //     key: 'petId'
+        // }
     }
 },
 {
@@ -40,10 +41,8 @@ Likes.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    //initialAutoIncrement=1000,
+    initialAutoIncrement: 100,
     modelName: 'likes'
-
-
 });
 
 module.exports = Likes;

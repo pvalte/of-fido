@@ -55,10 +55,10 @@ Users.init(
     
     {
         sequelize,
-        timestamps: true,
-        //initialAutoIncrement=10230,
+        timestamps: false,
         freezeTableName: true,
         underscored: true,
+        initialAutoIncrement: 10230,
         modelName: 'users'
     }
 );

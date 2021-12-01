@@ -23,6 +23,6 @@ Users.hasMany(Likes, {
   Likes.belongsTo(Users, {
     foreignKey: 'userId',
  
-   });
+  });
 
 module.exports = { Users, Pets, Likes };
