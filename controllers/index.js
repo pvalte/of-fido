@@ -9,7 +9,7 @@ router.use('/api', apiRoutes);
 router.use('/dashboard', dashRoutes);
 router.use('/', homeRoutes);
 router.use('/pet', petRoutes);
-router.use('/pets', typeRoutes);
+router.use('/type', typeRoutes);
 
 router.use((req, res) => {
     res.status(404).end();
