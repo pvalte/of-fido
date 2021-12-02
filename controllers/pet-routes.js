@@ -17,11 +17,32 @@ router.get('/', (req, res) => {
     });
 });
 
-// show one pet
-router.get('/:petId', (req, res) => {
+// // show one pet
+// router.get('/:petId', (req, res) => {
+//     Pets.findOne({
+//         where: {
+//             petId: req.body.petId
+//         },
+//         attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
+//     })
+//     .then(dbPetData => {
+//         if (!dbPetData) {
+//             res.status(404).json({ message: 'No pet found with this id :(' });
+//             return;
+//         }
+//         const pet = dbPetData.get({ plain: true });
+//         res.render('single-pet', { pet, loggedIn: req.session.loggedIn })
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     })
+// })
+
+router.get('/:type', (req, res) => {
     Pets.findOne({
         where: {
-            petId: req.body.petId
+            type: req.params.type
         },
         attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
     })
@@ -30,8 +51,8 @@ router.get('/:petId', (req, res) => {
             res.status(404).json({ message: 'No pet found with this id :(' });
             return;
         }
-        const pet = dbPetData.get({ plain: true });
-        res.render('single-pet', { pet, loggedIn: req.session.loggedIn })
+        const pets = dbPetData.map(pets => pets.get({ plain: true }));
+        res.render('pets', { pets, loggedIn: true });
     })
     .catch(err => {
         console.log(err);

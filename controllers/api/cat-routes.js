@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { Pets } = require('../../models');
 
-// get pets based on their species
-router.get('/:type', (req, res) => {
+// get cats 
+router.get('/', (req, res) => {
     Pets.findAll({
         where: {
             type: 'cat'
