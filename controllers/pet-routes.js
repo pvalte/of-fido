@@ -39,25 +39,30 @@ router.get('/', (req, res) => {
 //     })
 // })
 
+// get all pets based on type
 router.get('/:type', (req, res) => {
-    Pets.findOne({
+    Pets.findAll({
+        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description'],
         where: {
             type: req.params.type
-        },
-        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
+        }
     })
     .then(dbPetData => {
         if (!dbPetData) {
-            res.status(404).json({ message: 'No pet found with this id :(' });
+            res.status(404).json({ message: `No ${type}'s found`})
             return;
         }
-        const pets = dbPetData.map(pets => pets.get({ plain: true }));
-        res.render('pets', { pets, loggedIn: true });
+
+        const pets = dbPetData.map(post => post.get({plain: true}));
+        res.render('pets', { 
+            pets, 
+            loggedIn: req.session.loggedIn
+        });
     })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
-    })
-})
+    });
+});
 
 module.exports = router;
