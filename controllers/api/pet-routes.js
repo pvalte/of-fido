@@ -38,7 +38,10 @@ router.post('/', (req, res) => {
     Pets.create({
         petname: req.body.petname,
         age: req.body.age,
-        sex: req.body.sex        
+        sex: req.body.sex,
+        type: req.body.type,
+        breed: req.body.breed,
+        description: req.body.description        
     })
     .then(dbPetData => res.json(dbPetData))
     .catch(err => {
