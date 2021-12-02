@@ -168,6 +168,11 @@
   .edit-post-form {
     margin-bottom: 5%;
   }
+
+  .name {
+    border: 2px solid black;
+    margin: 2px;
+  }
   
   footer {
     border-top: 1px solid #ccc;
