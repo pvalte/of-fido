@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Pets, Likes } = require('../../models');
+const { compareSync } = require('bcrypt');
+const { Pets, Likes, Users } = require('../../models');
 
 // routes for api/pets
 // get all pets module 14 activity 22
@@ -52,25 +53,21 @@ router.post('/', (req, res) => {
 
 // // // put request /api/pets/like
 router.put('/like', (req, res) => {
-    if (req.session) {   
-        Likes.create({
-            uid: req.body.uid,
-            pid: req.body.pid
-        }).then(() => {
-            return Pets.findOne({
-                where: {
-                    id: req.body.petId
-                },
-                attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
-            })
-            .then(likedPetData => res.json(likedPetData))
-            .catch(err => {
-                console.log(err);
-                res.status(400).json(err);
-            })
-        })
-    }
-})
+    // if (req.session) {   
+    //     Pets.like({...req.body, uid: req.session.uid }, { Likes, Pets, Users })
+    //         .then(likedPetData => res.json(likedPetData))
+    //         .catch(err => {
+    //             console.log(err);
+    //             res.status(400).json(err);
+    //         })
+    //     }
+    Pets.like({...req.body, uid: req.body.uid}, { Likes, Pets, Users })
+    .then(likedPetData => res.json(likedPetData))
+    .catch(err => {
+        console.log(err);
+        res.status(400).json(err);
+    })
+    })
 
 // // // put request in case an animal needs to get updated or changed at all
 // // router.put('/:petId', (req, res) => {

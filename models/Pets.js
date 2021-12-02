@@ -2,7 +2,21 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create pets table to house pet information
-class Pets extends Model { }
+class Pets extends Model {
+    static like(body, models) {
+        return models.Likes.create({
+            uid: body.uid,
+            pid: body.pid
+        }).then(() => {
+            return Pets.findOne({
+                where: {
+                    id: body.pid
+                },
+                attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
+            })
+        })
+    }
+ }
 
 // create fields/columns for pets model (table)
 Pets.init(
@@ -12,23 +26,23 @@ Pets.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-            validate: {
-                len: [6]
-            }
+            // validate: {
+            //     len: [6]
+            // }
         },
         petname: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [45]
-            }
+            // validate: {
+            //     len: [45]
+            // }
         },
     age: {
             type: DataTypes.FLOAT,
             allowNull: false,
-            validate: {
-                len: [2]
-            }
+            // validate: {
+            //     len: [2]
+            // }
         },
         sex: {
             type: DataTypes.CHAR,

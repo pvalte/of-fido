@@ -15,17 +15,17 @@ Users.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-            validate: {
-                len: [6]
-            }
+            // validate: {
+            //     len: [6]
+            // }
         },
         
         username: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [45]
-            }
+            // validate: {
+            //     len: [5]
+            // }
         },
         email: {
             type: DataTypes.STRING,
@@ -38,9 +38,9 @@ Users.init(
         passwordHash: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [10]
-            }
+            // // validate: {
+            // //     len: [10]
+            // // }
         },
         registeredAt: {
             type: DataTypes.DATE(),

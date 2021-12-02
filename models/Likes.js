@@ -6,19 +6,18 @@ class Likes extends Model { }
 Likes.init({
     lid: {
         type: DataTypes.BIGINT,
-       autoIncrement: true,
         allowNull: false,
         primaryKey: true,
-        validate: {
-            len: [9]
-        }
+        // validate: {
+        //     len: [9]
+        // }
     },
     uid: {
         type: DataTypes.BIGINT,
         allowNull: false,
-        validate: {
-            len: [6]
-        },
+        // validate: {
+        //     len: [6]
+        // },
         // references: {
         //     model: 'users',
         //     key: 'userId'
@@ -41,8 +40,10 @@ Likes.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    initialAutoIncrement: 100,
+    //initialAutoIncrement=1000,
     modelName: 'likes'
+
+
 });
 
 module.exports = Likes;
