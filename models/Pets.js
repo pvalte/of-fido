@@ -20,7 +20,7 @@ Pets.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [45]
+                len: [4]
             }
         },
     age: {

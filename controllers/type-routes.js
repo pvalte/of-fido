@@ -24,16 +24,16 @@ router.get('/:type', (req, res) => {
     });
 });
 
-Pets.findAll({
-    attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
-})
-.then(dbPetData => {
-    const pets = dbPetData.map(pets => pets.get({ plain: true }));
-    res.render('pets', { pets, loggedIn: true });
-})
-.catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-});
+// Pets.findAll({
+//     attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
+// })
+// .then(dbPetData => {
+//     const pets = dbPetData.map(pets => pets.get({ plain: true }));
+//     res.render('pets', { pets, loggedIn: true });
+// })
+// .catch(err => {
+//     console.log(err);
+//     res.status(500).json(err);
+// });
 
 module.exports = router;
