@@ -1,6 +1,39 @@
 const router = require('express').Router();
 const { Users, Pets, Likes } = require('../../models');
 
+// get api/users
+router.get('/', (req, res) => {
+  Users.findAll({
+    attributes: { exclude: ['passwordHash'] }
+  })
+  .then(dbUserData => res.json(dbUserData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  })
+})
+
+// get specific user api/users/id
+router.get('/:userId', (req, res) => {
+  Users.findOne({
+    attributes: { exclude: ['passwordHash'] },
+    where: {
+      userId: req.params.userId
+    }
+  })
+  .then(dbUserData => {
+    if (!dbUserData) {
+      res.status(404).json({ message: 'No user with this id found' })
+      return;
+    }
+    res.json(dbUserData);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  })
+})
+
 // POST api/users
 router.post('/', (req, res) => {
     Users.create({
