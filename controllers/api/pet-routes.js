@@ -13,30 +13,6 @@ router.get('/', (req, res) => {
     })
 });
 
-router.get('/types', (req, res) => {
-    Pets.findAll({
-        attributes: ['type']
-    })
-    .then(dbPetData => {
-        if (!dbPetData) {
-            res.status(404).json({ message: `There are no ${type}'s at our center :(`});
-            return;
-        }
-        var typesArray = [];
-        for(i=0; i<dbPetData.length; i++) {
-            // push pet type into typesArray if it does not exist in the array already.
-            if(!typesArray.includes(dbPetData[i].type)) {
-                typesArray.push(dbPetData[i].type);
-            }
-        }
-        res.json(typesArray);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(404).json(err);
-    });
-});
-
 // get a single pet
 router.get('/:petId', (req, res) => {
     Pets.findOne({

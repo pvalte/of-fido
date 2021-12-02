@@ -5,7 +5,7 @@ const userRoutes = require('./user-routes');
 const catRoutes = require('./cat-routes');
 
 router.use('/pets', petRoutes);
-router.use('/type', petTypeRoutes);
+router.use('/types', petTypeRoutes);
 router.use('/users', userRoutes);
 router.use('/cats', catRoutes);
 
