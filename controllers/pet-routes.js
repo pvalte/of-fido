@@ -9,7 +9,10 @@ router.get('/', (req, res) => {
     })
     .then(dbPetData => {
         const pets = dbPetData.map(pets => pets.get({ plain: true }));
-        res.render('pets', { pets, loggedIn: true });
+        res.render('pets', { 
+            pets, 
+            loggedIn: req.session.loggedIn
+        });
     })
     .catch(err => {
         console.log(err);

@@ -15,10 +15,10 @@ async function loginFormHandler (event) {
         .then(response => {
             if(response.ok) {
                 document.location.replace('/dashboard');
-                } else {
-                    alert(response.statusText);
-                };
-            });        
+            } else {
+                alert(response.statusText);
+            };
+        });        
     }
 }
 
