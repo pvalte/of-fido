@@ -54,8 +54,13 @@ Pets.init(
         description: {
             type: DataTypes.TEXT,
             allowNull: true,
+        } ,
+        imgurl: {
+            type: DataTypes.TEXT,
+            allowNull: true,
         } 
     },
+    
     
     {
         sequelize,
