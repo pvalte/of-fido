@@ -8,7 +8,7 @@ const typeRoutes = require('./type-routes');
 router.use('/api', apiRoutes);
 router.use('/dashboard', dashRoutes);
 router.use('/', homeRoutes);
-router.use('/pet', petRoutes);
+router.use('/pets', petRoutes);
 router.use('/type', typeRoutes);
 
 router.use((req, res) => {

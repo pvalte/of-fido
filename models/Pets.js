@@ -33,9 +33,9 @@ Pets.init(
         petname: {
             type: DataTypes.STRING,
             allowNull: false,
-            // validate: {
-            //     len: [45]
-            // }
+            validate: {
+                len: [4]
+            }
         },
     age: {
             type: DataTypes.FLOAT,
@@ -68,8 +68,13 @@ Pets.init(
         description: {
             type: DataTypes.TEXT,
             allowNull: true,
+        } ,
+        imgurl: {
+            type: DataTypes.TEXT,
+            allowNull: true,
         } 
     },
+    
     
     {
         sequelize,

@@ -1,17 +1,23 @@
 const router = require('express').Router();
-const { Users } = require('../models');
+const { Pets, Users } = require('../models');
 
 router.get('/', (req, res) => {
-    res.render('homepage');
+    res.render('homepage', {
+        loggedIn: req.session.loggedIn
+    });
 });
 
 // render the login template if the user is not already logged in
 router.get('/login', (req, res) => {
-    // if (req.session.loggedIn) {
-    //     res.redirect('/');
-    //     return;
-    // }
-    res.render('login');
+    if (req.session.userId) {
+        console.log('You are already logged in');
+        res.redirect('/');
+        return;
+    } else {
+        res.render('login', {
+            loggedIn: req.session.loggedIn
+        });
+    }
 });
 
 module.exports = router;

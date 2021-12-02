@@ -6,7 +6,7 @@ const { Pets, Likes, Users } = require('../../models');
 // get all pets module 14 activity 22
 router.get('/', (req, res) => {
     Pets.findAll({
-        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
+        attributes: ['petId', 'petname', 'age', 'sex', 'type', 'breed', 'description']
     }).then(dbPetData => res.json(dbPetData))
     .catch(err => {
         console.log(err);
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     })
 });
 
-// // // get a single pet
+// get a single pet
 router.get('/:petId', (req, res) => {
     Pets.findOne({
         where: {
@@ -51,7 +51,7 @@ router.post('/', (req, res) => {
     })
 })
 
-// // // put request /api/pets/like
+// put request /api/pets/like
 router.put('/like', (req, res) => {
     // if (req.session) {   
     //     Pets.like({...req.body, uid: req.session.uid }, { Likes, Pets, Users })
@@ -69,34 +69,34 @@ router.put('/like', (req, res) => {
     })
     })
 
-// // // put request in case an animal needs to get updated or changed at all
-// // router.put('/:petId', (req, res) => {
-// //     Pets.update(
-// //         {
-// //             petname: req.body.petname,
-// //             age: req.body.age,
-// //             sex: req.body.sex,
-// //             type: req.body.type,
-// //             breed: req.body.breed,
-// //             description: req.body.description 
-// //         },
-// //         {
-// //             where: {
-// //                 petId: req.body.petId
-// //             }
-// //         }
-// //     )
-// //     .then(dbPetData => {
-// //         if (!dbPetData) {
-// //             res.status(404).json({ message: 'No pet with this id found' });
-// //             return;
-// //         }
-// //         res.json(dbPetData);
-// //     })
-// //     .catch(err => {
-// //         console.log(err);
-// //         res.status(500).json(err);
-// //     })
-// // })
+// Update pet info
+router.put('/:petId', (req, res) => {
+    Pets.update(
+        {
+            petname: req.body.petname,
+            age: req.body.age,
+            sex: req.body.sex,
+            type: req.body.type,
+            breed: req.body.breed,
+            description: req.body.description 
+        },
+        {
+            where: {
+                petId: req.params.petId
+            }
+        }
+    )
+    .then(dbPetData => {
+        if (!dbPetData) {
+            res.status(404).json({ message: 'No pet with this id found' });
+            return;
+        }
+        res.json(dbPetData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+})
 
 module.exports = router;
