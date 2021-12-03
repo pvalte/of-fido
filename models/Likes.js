@@ -6,7 +6,7 @@ class Likes extends Model { }
 Likes.init({
     lid: {
         type: DataTypes.BIGINT,
-       autoIncrement: true,
+        autoIncrement: true,
         allowNull: false,
         primaryKey: true,
         validate: {

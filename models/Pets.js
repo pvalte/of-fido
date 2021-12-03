@@ -23,7 +23,7 @@ Pets.init(
                 len: [45]
             }
         },
-    age: {
+        age: {
             type: DataTypes.FLOAT,
             allowNull: false,
             validate: {
