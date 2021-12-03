@@ -15,7 +15,7 @@ router.get('/:type', (req, res) => {
             return;
         }
 
-        const pets = dbPetData.map(post => post.get({plain: true}));
+        const pets = dbPetData.map(pet => pet.get({plain: true}));
         res.render('pets', { 
             pets, 
             loggedIn: req.session.loggedIn

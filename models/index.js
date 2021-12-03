@@ -19,6 +19,14 @@ Users.hasMany(Likes, {
     foreignKey: 'uid'
 });
 
+Pets.hasMany(Likes, {
+    foreignKey: 'pid'
+  });
+
+Likes.belongsTo(Pets, {
+    foreignKey: 'pid'
+});
+
 Likes.belongsTo(Users, {
     foreignKey: 'uid',
 
