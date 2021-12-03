@@ -5,7 +5,7 @@ const { Pets } = require('../models');
 router.get('/', (req, res) => {
     console.log(req.session);
     Pets.findAll({
-        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
+        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl']
     })
     .then(dbPetData => {
         const pets = dbPetData.map(pets => pets.get({ plain: true }));
@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 // show one pet
 router.get('/:petId', (req, res) => {
     Pets.findOne({
-        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description'],
+        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl'],
         where: {
             petId: req.params.petId
         }

@@ -5,7 +5,7 @@ const { Pets, Likes } = require('../../models');
 // get all pets module 14 activity 22
 router.get('/', (req, res) => {
     Pets.findAll({
-        attributes: ['petId', 'petname', 'age', 'sex', 'type', 'breed', 'description']
+        attributes: ['petId', 'petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl']
     }).then(dbPetData => res.json(dbPetData))
     .catch(err => {
         console.log(err);
@@ -19,7 +19,7 @@ router.get('/:petId', (req, res) => {
         where: {
             petId: req.params.petId
         },
-        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
+        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl']
     }).then(dbPetData => {
         if (!dbPetData) {
             res.status(404).json({ message: 'No pet with this id found' });
@@ -60,7 +60,7 @@ router.put('/like', (req, res) => {
             where: {
                 id: req.body.petId
             },
-            attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
+            attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl']
         })
         .then(dbPetData => res.json(dbPetData))
         .catch(err => {

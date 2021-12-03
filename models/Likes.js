@@ -10,30 +10,22 @@ Likes.init({
         allowNull: false,
         primaryKey: true,
         validate: {
-            len: [9]
+            len: [3]
         }
     },
     uid: {
         type: DataTypes.BIGINT,
-        allowNull: false,
-        validate: {
-            len: [6]
-        },
-        // references: {
-        //     model: 'users',
-        //     key: 'userId'
-        // }
+        references: {
+            model: 'users',
+            key: 'userId'
+        }
     },
     pid: {
         type: DataTypes.BIGINT,
-        allowNull: false,
-        validate: {
-            len: [6]
-        },
-        // references: {
-        //     model: 'pets',
-        //     key: 'petId'
-        // }
+        references: {
+            model: 'pets',
+            key: 'petId'
+        }
     }
 },
 {

@@ -12,7 +12,7 @@ Users.init(
             primaryKey: true,
             autoIncrement: true,
             validate: {
-                len: [6]
+                len: [5]
             }
         },
         
