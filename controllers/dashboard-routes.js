@@ -13,7 +13,7 @@ router.get('/', withAuth, (req, res) => {
         include: [
             {
                 model: Pets,
-                attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl'],
+                attributes: ['petId', 'petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl'],
                 through: Likes,
                 as: 'liked_pets'
             }

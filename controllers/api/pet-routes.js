@@ -19,7 +19,7 @@ router.get('/:petId', (req, res) => {
         where: {
             petId: req.params.petId
         },
-        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl']
+        attributes: ['petId', 'petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl']
     }).then(dbPetData => {
         if (!dbPetData) {
             res.status(404).json({ message: 'No pet with this id found' });
