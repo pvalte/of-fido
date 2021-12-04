@@ -1,3 +1,7 @@
+<a href="/type/cat">Cats</a>
+<a href="/type/dog">Dogs</a>
+<a href="/pets">All Pets</a>
+
 <ol class="pet-list">
   {{#each pets as |pet|}}
   <li>
@@ -6,6 +10,6 @@
   {{/each}}
 </ol>
 
-{{#if loggedIn}}
-<script src="/javascript/like.js"></script>
-{{/if}}
+{{!-- {{#if loggedIn}}
+  <script src="/javascript/like.js"></script>
+{{/if}} --}}

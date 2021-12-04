@@ -19,7 +19,15 @@ router.get('/:userId', (req, res) => {
     attributes: { exclude: ['passwordHash'] },
     where: {
       userId: req.params.userId
-    }
+    },
+    include: [
+      {
+        model: Pets,
+        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl'],
+        through: Likes,
+        as: 'liked_pets'
+      }
+    ]
   })
   .then(dbUserData => {
     if (!dbUserData) {
@@ -34,7 +42,7 @@ router.get('/:userId', (req, res) => {
   })
 })
 
-// POST api/users
+// POST api/users (sign up)
 router.post('/', (req, res) => {
     Users.create({
         username: req.body.username,
@@ -43,19 +51,18 @@ router.post('/', (req, res) => {
     })
     .then(dbUserData => {
         req.session.save(() => {
-            req.session.userId = dbUserData.id;
+            req.session.userId = dbUserData.userId;
             req.session.username = dbUserData.username;
             req.session.loggedIn = true;
 
             res.json(dbUserData);
-        })
+        });
     })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
-    })
-
-})
+    });
+});
 
 // post api/users/login
 router.post('/login', (req, res) => {
@@ -70,13 +77,19 @@ router.post('/login', (req, res) => {
       }
       req.session.save(() => {
         // declare session variables
-        req.session.userId = dbUserData.id;
+        req.session.userId = dbUserData.userId;
         req.session.username = dbUserData.username;
         req.session.loggedIn = true;
   
+       console.log('logged In');
+       console.log(req.session)
         res.json({ user: dbUserData, message: 'You are now logged in!' });
       });
-    });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    })
   });
 
   // log the user out
@@ -84,6 +97,7 @@ router.post('/login', (req, res) => {
       if (req.session.loggedIn) {
         req.session.destroy(() => {
           res.status(204).end();
+          console.log('logged out.');
         });
     } else {
         res.status(404).end();

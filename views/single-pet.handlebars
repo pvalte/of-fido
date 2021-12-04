@@ -1,5 +1,12 @@
 {{> pet-info pet}}
 
 {{#if loggedIn}}
+  <div>
+    <button type="button" class="like-btn">Like</button>
+  </div>
+{{/if}}
+
+
+{{#if loggedIn}}
 <script src="/javascript/like.js"></script>
 {{/if}}

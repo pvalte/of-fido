@@ -1,13 +1,16 @@
-{{#if pets.length}}
 <section>
-  <h2>Your Favorit Pets</h2>
+  <h2>Your Favorite Pets</h2>
+{{#if pets.length}}
+
   <ol>
     {{#each pets as |pet|}}
     <li>
       {{> pet-info pet}}
-      <a href="/dashboard/edit/{{pet.id}}" class="edit-link">Edit post</a>
     </li>
     {{/each}}
   </ol>
-</section>
+{{else}}
+  <h3>You haven't like any of our pets yet!</h3>
 {{/if}}
+
+</section>

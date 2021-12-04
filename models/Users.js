@@ -12,7 +12,7 @@ Users.init(
             primaryKey: true,
             autoIncrement: true,
             validate: {
-                len: [6]
+                len: [5]
             }
         },
         
@@ -20,7 +20,7 @@ Users.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [45]
+                len: [5]
             }
         },
         email: {

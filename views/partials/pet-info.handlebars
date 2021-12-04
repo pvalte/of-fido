@@ -1,5 +1,10 @@
 <article class="pet">
   <div class="name">
-    {{name}}
+    <img src="{{imgurl}}" alt="{{petname}}" style="width:250px;height:200px;">
+    <a href="/pets/{{petId}}">{{petname}}</a>, {{sex}} <br>
+    Age: {{age}} years <br>
+    {{type}} - {{breed}} <br>
+    {{description}} <br>
+    {{!-- {{vote_count}} Favorites <br> --}}
   </div>
 </article>

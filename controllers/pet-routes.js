@@ -3,22 +3,30 @@ const { Pets } = require('../models');
 
 // get all of the pets
 router.get('/', (req, res) => {
+    console.log(req.session);
     Pets.findAll({
-        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
+        attributes: ['petId', 'petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl']
     })
     .then(dbPetData => {
-        const pets = dbPetData.map(pets = pets.get({ plain: true }))
-        res.render('pets', { pets, loggedIn: req.session.loggedIn })
+        const pets = dbPetData.map(pets => pets.get({ plain: true }));
+        res.render('pets', { 
+            pets, 
+            loggedIn: req.session.loggedIn
+        });
     })
-})
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 // show one pet
 router.get('/:petId', (req, res) => {
     Pets.findOne({
+        attributes: ['petId', 'petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl'],
         where: {
-            petId: req.body.petId
-        },
-        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
+            petId: req.params.petId
+        }
     })
     .then(dbPetData => {
         if (!dbPetData) {
