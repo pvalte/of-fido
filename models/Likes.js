@@ -26,9 +26,9 @@ Likes.init({
     pid: {
         type: DataTypes.BIGINT,
         allowNull: false,
-        validate: {
-            len: [6]
-        },
+        // validate: {
+        //     len: [6]
+        // },
         // references: {
         //     model: 'pets',
         //     key: 'petId'

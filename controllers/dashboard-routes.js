@@ -7,7 +7,7 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, (req, res) => {
     // Pets.findAll({
     //     where: {
-    //         pid: req.sessions.userId
+    //         
     //     },
     //     attributes: ['petId', 'petname', 'sex']
     // })
