@@ -1,6 +1,7 @@
-{{#if pets.length}}
 <section>
   <h2>Your Favorite Pets</h2>
+{{#if pets.length}}
+
   <ol>
     {{#each pets as |pet|}}
     <li>
@@ -8,5 +9,8 @@
     </li>
     {{/each}}
   </ol>
-</section>
+{{else}}
+  <h3>You haven't like any of our pets yet!</h3>
 {{/if}}
+
+</section>
