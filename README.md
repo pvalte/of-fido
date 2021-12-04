@@ -3,7 +3,7 @@
   ![License](https://img.shields.io/badge/license-MIT-blue)
   
   ## Description
-  OK-Fido is a full-stack, content management system-style application designed to be an easy to use and efficient way to browse adoptable pets and save favorites for quick reference. In this application, user's are able to view currently available pets that are up for adoption and save pets of interest to their user dashboard by 'liking' individual pets. This application was created using node.js & Express.js for RESTful API, Handlebars.js as the template engine, mySQL & Sequelize for the database, and Heroku for deployment.
+  OK-Fido is a full-stack, content management system-style application designed to be an easy to use and efficient way to browse adoptable pets and save  the pets to your favorites for quick reference. In this application, user's are able to view currently available pets that are up for adoption and save pets of interest to their user dashboard by 'liking' individual pets. This application was created using node.js & Express.js for RESTful API, Handlebars.js as the template engine, mySQL & Sequelize for the database, and Heroku for deployment.
 
    ![Screenshot]()
 
@@ -36,7 +36,10 @@ For other usage, visit the [deployed application](Heroku link)
       For details, visit: https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt
   
 ## Contributing
-  Please contact the current contributors for more information (see Questions section).
+  Ben Rowen
+  Jake Casewell
+  Paige Altemare
+  Chanel Mitchell
 
 ## Tests
   There are not currently any tests for this project.
@@ -44,7 +47,7 @@ For other usage, visit the [deployed application](Heroku link)
 ## Questions
   For any questions regarding this project, please contact the project owners:
   Ben Rowen: Benrowentv@gmail.com
-  Chanel Mitchell: chanelmitchell2006@hotmail.com
+  Chanel Mitchell: chanelmitchell@hotmail.com
   Paige Altemare: pvaltemare@gmail.com
   Jake Caswell: jakecaswell88@gmail.com
 
