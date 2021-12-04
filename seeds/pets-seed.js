@@ -39,7 +39,7 @@ const petsdata = [
     type: 'Cat', 
     breed: 'Domestic Short Hair',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.',
-    imgurl: 'https://lh3.googleusercontent.com/proxy/BA8poGpJn1zoxsRYM3iOSPGFyInqbCBEIp7NJncTgQZjKwe4e2WK0JTwNOluDQ7NVAw6pR1rxtEzD4Om6PZWMP5Sdw6Mfv8rdrjOFps5cKhQ0xV-6jTEBjsrImo'
+    imgurl: "'../images/cats/cat2.jpg'"
   },
   {
     //petId: 500134,     
@@ -94,7 +94,7 @@ const petsdata = [
   {
   //petId: 500139,     
   petname: 'Julianne', 
-    age:  .6,  
+    age:  1,  
     sex: 'F', 
     type: 'Cat',   
     breed: 'Domestic Short Hair', 
@@ -134,7 +134,7 @@ const petsdata = [
   {
   //petId: 500143,     
   petname: 'Bobo', 
-    age: .5, 
+    age: 2, 
     sex: 'M', 
     type: 'Cat',      
     breed: 'Maine Coon',
@@ -144,13 +144,35 @@ const petsdata = [
   {
     //petId: 500144,     
     petname: 'Princess', 
-    age: .6,   
+    age: 1,   
     sex: 'F', 
     type: 'Dog',       
     breed: 'German Shepard', 
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.',
     imgurl: 'https://www.thesprucepets.com/thmb/W7VhLK0I1Bo85cbLgvvENG9IrZ0=/1500x1000/filters:fill(auto,1)/breed_profile_germansheperd_1118000_hero_2536-6dc4ce05871945b8a894bd80c0ecc7f1.jpg'
-  }
+  },
+  {
+       //petId: 500145,     
+       petname: 'Almond', 
+       age: 3,   
+       sex: 'M', 
+       type: 'Cat',       
+       breed: 'Domestic Short Hair', 
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.',
+      imgurl: '../images/cats/cat1.jpg'
+   },
+  //  {
+  //        //petId: 500145,     
+  //        petname: 'Blinky', 
+  //        age: 4,   
+  //        sex: 'F', 
+  //        type: 'Cat',       
+  //        breed: 'Domestic Short Hair', 
+  //         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.',
+  //       imgurl: '../images/cats/cat2.jpg'
+  //    }
+    
+  
  ];
 
 const seedPets = () => Pets.bulkCreate(petsdata);

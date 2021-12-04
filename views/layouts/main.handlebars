@@ -4,36 +4,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>OkFido</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/test.css">
 </head>
 
 <body>
-  <div class="wrapper">
+  <div class="container">
+    <!--Header begins-->
     <header>
-      <h1>
-        <a href="/">OkFido</a>
-      </h1>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/Pets">Pets</a>
-        {{#if loggedIn}}
-        <a href="/dashboard">Dashboard</a>
-        <button id="logout" class="btn-no-style">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
+      <!-- Navigation starts-->
+      <nav class="secondary_header" id="menu">
+        <ul>
+          <li><a href="/" class="nav-deco">HOME</a></li>
+          <li><a href="/about">ABOUT</a></li>
+          <li><a href="/pets">PETS</a></li>
+          <li><a href="#">SERVICES</a></li>
+          <li><a href="#"></a>SIGN UP</li>
+          {{#if loggedIn}}
+          <a href="/dashboard">Dashboard</a>
+          <button id="logout" class="btn-no-style">logout</button>
+          {{else}}
+          <li><a href="/login">LOGIN</a></li>
+          {{/if}}
+        </ul>
       </nav>
+      <!-- Navigation end-->
     </header>
+    <!--Header end-->
+    <!--Main content starts-->
     <main>
       {{{ body }}}
     </main>
-    <footer>
-      Thanks for visiting!
+    <!--Main content ends-->
+    <!--Footer begins-->
+    <footer class="secondary_header footer">
+      <div class="copyright">&copy;2021 - <strong>OkFido</strong></div>
     </footer>
+    <!--Footer ends-->
   </div>
-  
+
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
