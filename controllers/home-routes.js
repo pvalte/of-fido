@@ -20,6 +20,18 @@ router.get('/login', (req, res) => {
     }
 });
 
+router.get('/signup', (req, res) => {
+    if (req.session.userId) {
+        console.log('You are already logged in');
+        res.redirect('/');
+        return;
+    } else {
+        res.render('signup', {
+            loggedIn: req.session.loggedIn
+        });
+    }
+});
+
 router.get('/about', (req, res) => {
     res.render('about', {
         loggedIn: req.session.loggedIn
