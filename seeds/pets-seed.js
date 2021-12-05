@@ -39,7 +39,7 @@ const petsdata = [
     type: 'Cat', 
     breed: 'Domestic Short Hair',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elaliquait.',
-    imgurl: "'../images/cats/cat2.jpg'"
+    imgurl: 'https://www.catbreedslist.com/uploads/cat-pictures/havana-brown-2.jpg'
   },
   {
     //petId: 500134,     
