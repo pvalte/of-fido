@@ -24,9 +24,10 @@ router.get('/', withAuth, (req, res) => {
                 res.status(404).json({ message: 'No user with this id found' })
                 return;
             }
+            const username = dbUserData.username;
             const dbPetData = dbUserData.liked_pets;
             const pets = dbPetData.map(pet => pet.get({ plain: true }))
-            res.render('dashboard', { pets, loggedIn: true })
+            res.render('dashboard', { pets, username, loggedIn: true })
         })
         .catch(err => {
             console.log(err);
