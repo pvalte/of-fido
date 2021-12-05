@@ -38,4 +38,10 @@ router.get('/about', (req, res) => {
     });
 });
 
+router.get('/services', (req, res) => {
+    res.render('services', {
+        loggedIn: req.session.loggedIn
+    });
+});
+
 module.exports = router;

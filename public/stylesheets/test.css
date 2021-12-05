@@ -476,13 +476,28 @@ nav a{
 	background-image:url("../images/logo.jpeg");
 	background-size: cover;
 }
+
+.avatar-wrapper {
+	flex-basis: 100%;
+	display: flex;
+	flex-wrap: wrap;
+    align-items: flex-start;
+}
+
 .avatar{
+	flex-basis: 100%;
 	width: 100px;
 	height: 70px;
-	background-image:url("../images/AdobeStock_332596535.jpeg");
+	background-image: url("../images/AdobeStock_332596535.jpeg");
+	background-position: center;
 	background-size: contain;
 	background-repeat: no-repeat;
 }
+
+.avatext{
+    font-size: small;
+}
+
 .cardly{
   display: grid;
   grid-template-columns: 300px;
@@ -630,9 +645,7 @@ margin-top: 10px;
    border-radius: 10px; 
     text-align: center;
 }
-.avatext{
-    font-size: xx-small;
-}
+
 .signupFrm {
     display: flex;
     justify-content: center;
