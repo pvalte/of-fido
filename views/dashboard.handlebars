@@ -1,13 +1,29 @@
-{{!-- {{#if pets.length}} --}}
 <section>
-  <h2>Your Favorit Pets</h2>
-  <ol>
+  <section class="content_flow">
+  <div class="col"><div class="avatar"><p class="avatext"></p>
+  </div>
+  </div>
+	 <div class="col"><div class="user-deco"></div>
+   </div>
+   <div class="col">
+{{#if pets.length}}
+
+  {{!-- <ol>
     {{#each pets as |pet|}}
     <li>
       {{> pet-info pet}}
-      <a href="/dashboard/edit/{{pet.id}}" class="edit-link">Edit post</a>
     </li>
     {{/each}}
-  </ol>
+  </ol> --}}
+  {{#each pets as |pet|}}
+     <div class="cardly_pets">
+       {{> pet-info pet }}
+     </div>
+      {{/each}}
+   
+{{else}}
+  <h3>You haven't liked any of our pets yet!</h3>
+{{/if}}
+   </div>
 </section>
-{{!-- {{/if}} --}}
+</section>

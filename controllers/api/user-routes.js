@@ -19,7 +19,15 @@ router.get('/:userId', (req, res) => {
     attributes: { exclude: ['passwordHash'] },
     where: {
       userId: req.params.userId
-    }
+    },
+    include: [
+      {
+        model: Pets,
+        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl'],
+        through: Likes,
+        as: 'liked_pets'
+      }
+    ]
   })
   .then(dbUserData => {
     if (!dbUserData) {

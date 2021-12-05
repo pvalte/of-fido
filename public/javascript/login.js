@@ -22,6 +22,7 @@ async function loginFormHandler (event) {
     }
 }
 
+<<<<<<< HEAD
 async function signupFormHandler (event) {
     event.preventDefault();
 
@@ -53,3 +54,6 @@ async function signupFormHandler (event) {
 
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+=======
+document.querySelector('.form').addEventListener('submit', loginFormHandler);
+>>>>>>> develop

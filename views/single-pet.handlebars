@@ -1,5 +1,27 @@
+<section>
+  <article class="left_article">
+    <div class="logo"></div>
+
 {{> pet-info pet}}
+
+{{#if loggedIn}}
+  <div>
+    <button type="button" class="like-btn">Like</button>
+  </div>
+{{/if}}
+
 
 {{#if loggedIn}}
 <script src="/javascript/like.js"></script>
 {{/if}}
+  </article>
+   <aside class="right_article">
+      <h4 style="text-align: center;">My Information:</h4>
+     <div class="pet_info">
+       <div class="attrb"><img src="../images/goodt.jpeg" width="50px" height="50px"> </br>Good Temperment</div>
+       <div class="attrb"><img src="../images/vact.jpeg" width="50px" height="50px"></br> Vaccinated</div>
+       <div class="attrb"><img src="../images/neutt.jpeg" width="50px" height="50px"></br> Neutered</div>
+       <div class="attrb"><img src="../images/childt.jpeg" width="50px" height="50px"></br> Good with Children</div>
+     </div>
+   </aside>
+</section>

@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Pets, Likes } = require('../../models');
+const { Pets, Likes, Users } = require('../../models');
 
 // routes for api/pets
 // get all pets module 14 activity 22
 router.get('/', (req, res) => {
     Pets.findAll({
-        attributes: ['petId', 'petname', 'age', 'sex', 'type', 'breed', 'description']
+        attributes: ['petId', 'petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl']
     }).then(dbPetData => res.json(dbPetData))
     .catch(err => {
         console.log(err);
@@ -19,7 +19,7 @@ router.get('/:petId', (req, res) => {
         where: {
             petId: req.params.petId
         },
-        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
+        attributes: ['petId', 'petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl']
     }).then(dbPetData => {
         if (!dbPetData) {
             res.status(404).json({ message: 'No pet with this id found' });
@@ -50,25 +50,37 @@ router.post('/', (req, res) => {
     })
 })
 
-// put request /api/pets/like
-router.put('/like', (req, res) => {
-    Likes.create({
-        uid: req.body.uid,
-        pid: req.body.pid
-    }).then(() => {
-        return Pets.findOne({
-            where: {
-                id: req.body.petId
-            },
-            attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
-        })
-        .then(dbPetData => res.json(dbPetData))
-        .catch(err => {
-            console.log(err);
-            res.status(400).json(err);
-        })
-    })
-})
+
+// router.put('/likes', (req, res) => {
+//     Likes.create({
+//         uid: req.session.user_id,
+//         pid: req.body.pet_id
+//     })
+//     .then(() => {
+//         return Pets.findOne({
+//             where: {
+//                 petId: req.body.pet_id
+//             },
+//             attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl']
+//         })
+//         .then(dbPetData => res.json(dbPetData))
+//         .catch(err => {
+//             console.log(err);
+//             res.status(400).json(err);
+//         })
+//     })
+// })
+
+// put request /api/pets/likes
+router.put('/likes', (req, res) => {
+    // custom static method created in models/Pets.js
+    Pets.like({ ...req.body, uid: req.session.userId }, { Likes, Users })
+      .then(updatedLikeData => res.json(updatedLikeData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+});
 
 // Update pet info
 router.put('/:petId', (req, res) => {

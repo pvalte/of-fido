@@ -5,7 +5,7 @@ const { Pets } = require('../models');
 router.get('/', (req, res) => {
     console.log(req.session);
     Pets.findAll({
-        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
+        attributes: ['petId', 'petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl']
     })
     .then(dbPetData => {
         const pets = dbPetData.map(pets => pets.get({ plain: true }));
@@ -20,52 +20,26 @@ router.get('/', (req, res) => {
     });
 });
 
-// // show one pet
-// router.get('/:petId', (req, res) => {
-//     Pets.findOne({
-//         where: {
-//             petId: req.body.petId
-//         },
-//         attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
-//     })
-//     .then(dbPetData => {
-//         if (!dbPetData) {
-//             res.status(404).json({ message: 'No pet found with this id :(' });
-//             return;
-//         }
-//         const pet = dbPetData.get({ plain: true });
-//         res.render('single-pet', { pet, loggedIn: req.session.loggedIn })
-//     })
-//     .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//     })
-// })
-
-// get all pets based on type
-router.get('/:type', (req, res) => {
-    Pets.findAll({
-        attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description'],
+// show one pet
+router.get('/:petId', (req, res) => {
+    Pets.findOne({
+        attributes: ['petId', 'petname', 'age', 'sex', 'type', 'breed', 'description', 'imgurl'],
         where: {
-            type: req.params.type
+            petId: req.params.petId
         }
     })
     .then(dbPetData => {
         if (!dbPetData) {
-            res.status(404).json({ message: `No ${type}'s found`})
+            res.status(404).json({ message: 'No pet found with this id :(' });
             return;
         }
-
-        const pets = dbPetData.map(post => post.get({plain: true}));
-        res.render('pets', { 
-            pets, 
-            loggedIn: req.session.loggedIn
-        });
+        const pet = dbPetData.get({ plain: true });
+        res.render('single-pet', { pet, loggedIn: req.session.loggedIn })
     })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
-    });
-});
+    })
+})
 
 module.exports = router;
