@@ -7,7 +7,6 @@ class Pets extends Model {
         return models.Likes.create({
             uid: body.uid,
             pid: body.pid
-<<<<<<< HEAD
         })
         // .then(() => {
         //     return models.Users.findOne({
@@ -27,18 +26,6 @@ class Pets extends Model {
         // })
     }
 }
-=======
-        }).then(() => {
-            return Pets.findOne({
-                where: {
-                    id: body.pid
-                },
-                attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
-            })
-        })
-    }
- }
->>>>>>> feature/routes
 
 // create fields/columns for pets model (table)
 Pets.init(
