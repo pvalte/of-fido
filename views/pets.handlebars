@@ -1,14 +1,29 @@
-<a href="/type/cat">Cats</a>
+{{!-- <a href="/type/cat">Cats</a>
 <a href="/type/dog">Dogs</a>
-<a href="/pets">All Pets</a>
+<a href="/pets">All Pets</a> --}}
 
-<ol class="pet-list">
+<!--Sectioning out-->
+
+{{!-- <ol class="pet-list">
   {{#each pets as |pet|}}
   <li>
     {{> pet-info pet }}
   </li>
-  {{/each}}
+  {{/each}} --}}
 </ol>
+<section> <div class="logo"></div> <a href="/type/cat">Cats</a>
+<a href="/type/dog">Dogs</a>
+<a href="/pets">All Pets</a></section>
+ 
+ <section class="browse_all">
+  
+     {{#each pets as |pet|}}
+     <div class="cardly_pets">
+       {{> pet-info pet }}
+     </div>
+      {{/each}}
+   
+  </section>
 
 {{!-- {{#if loggedIn}}
   <script src="/javascript/like.js"></script>
