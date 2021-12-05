@@ -1,4 +1,8 @@
 const router = require('express').Router();
+<<<<<<< HEAD
+=======
+const { compareSync } = require('bcrypt');
+>>>>>>> feature/routes
 const { Pets, Likes, Users } = require('../../models');
 
 // routes for api/pets
@@ -50,6 +54,7 @@ router.post('/', (req, res) => {
     })
 })
 
+<<<<<<< HEAD
 
 // router.put('/likes', (req, res) => {
 //     Likes.create({
@@ -81,6 +86,25 @@ router.put('/likes', (req, res) => {
         res.status(500).json(err);
       });
 });
+=======
+// put request /api/pets/like
+router.put('/like', (req, res) => {
+    // if (req.session) {   
+    //     Pets.like({...req.body, uid: req.session.uid }, { Likes, Pets, Users })
+    //         .then(likedPetData => res.json(likedPetData))
+    //         .catch(err => {
+    //             console.log(err);
+    //             res.status(400).json(err);
+    //         })
+    //     }
+    Pets.like({...req.body, uid: req.body.uid}, { Likes, Pets, Users })
+    .then(likedPetData => res.json(likedPetData))
+    .catch(err => {
+        console.log(err);
+        res.status(400).json(err);
+    })
+    })
+>>>>>>> feature/routes
 
 // Update pet info
 router.put('/:petId', (req, res) => {

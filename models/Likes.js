@@ -33,8 +33,10 @@ Likes.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    initialAutoIncrement: 100,
+    //initialAutoIncrement=1000,
     modelName: 'likes'
+
+
 });
 
 module.exports = Likes;

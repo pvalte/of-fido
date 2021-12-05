@@ -7,6 +7,7 @@ class Pets extends Model {
         return models.Likes.create({
             uid: body.uid,
             pid: body.pid
+<<<<<<< HEAD
         })
         // .then(() => {
         //     return models.Users.findOne({
@@ -26,6 +27,18 @@ class Pets extends Model {
         // })
     }
 }
+=======
+        }).then(() => {
+            return Pets.findOne({
+                where: {
+                    id: body.pid
+                },
+                attributes: ['petname', 'age', 'sex', 'type', 'breed', 'description']
+            })
+        })
+    }
+ }
+>>>>>>> feature/routes
 
 // create fields/columns for pets model (table)
 Pets.init(
@@ -35,9 +48,9 @@ Pets.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-            validate: {
-                len: [6]
-            }
+            // validate: {
+            //     len: [6]
+            // }
         },
         petname: {
             type: DataTypes.STRING,
@@ -49,9 +62,9 @@ Pets.init(
         age: {
             type: DataTypes.FLOAT,
             allowNull: false,
-            validate: {
-                len: [2]
-            }
+            // validate: {
+            //     len: [2]
+            // }
         },
         sex: {
             type: DataTypes.CHAR,
