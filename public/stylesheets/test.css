@@ -568,7 +568,7 @@ nav a{
 	align-items: center;
 }
 .content_flow > *:nth-child(3){
-	flex: 0 0;
+	flex: 0 0 25%;
 	
 }
 
@@ -681,23 +681,47 @@ margin-top: 10px;
 	  font-family: Arial, Helvetica, sans-serif;
 	 
   }
- 
-  /* .button {
+  /* .icon {
+ width: 30px;
+ height: 30px;
+ padding: 0 0 0 0;
+ float:top;
+} */
+ .button {
 	display: flex;
-	height: 50px;
-	padding: 0;
-	background: #009578;
-	border: none;
-	outline: none;
-	border-radius: 5px;
-	overflow: hidden;
-	font-family: "Quicksand", sans-serif;
-	font-size: 16px;
-	font-weight: 500;
-	cursor: pointer;
+	font-family: Arial, Helvetica, sans-serif;
+font-size: small;
+box-shadow: 0 10px 25px rgba(116, 123, 129, 0.2);
+font-weight: bold;
+width: 70px;
+outline: #A5A5A5;
+
   }
-  
-  .button:hover {
+  .btn_deco{
+	  cursor: pointer;
+	  height: 30px;
+	  width: 70px;;
+  }
+
+  .btn_deco:hover{
+	  cursor: pointer;
+  }
+  .btn_sign{
+	box-shadow: 0 10px 25px rgba(116, 123, 129, 0.2);
+	width: 80px;
+outline: #A5A5A5;
+height: 30px;
+cursor: pointer;
+  }
+
+ 
+  /* .likes{
+	  background: white;
+	  border: none;
+	  width: 70px;
+	
+  } */
+  /* .button:hover {
 	background: #008168;
   }
   
@@ -718,4 +742,4 @@ margin-top: 10px;
 	font-size: 1.5em;
 	background: rgba(0, 0, 0, 0.08);
   }
-  */
+  */ 
