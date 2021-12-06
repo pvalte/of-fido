@@ -5,7 +5,9 @@
   ## Description
   OK-Fido is a full-stack, content management system-style application designed to be an easy to use and efficient way to browse adoptable pets and save  the pets to your favorites for quick reference. In this application, user's are able to view currently available pets that are up for adoption and save pets of interest to their user dashboard by 'liking' individual pets. This application was created using node.js & Express.js for RESTful API, Handlebars.js as the template engine, mySQL & Sequelize for the database, and Heroku for deployment.
 
-  
+  Deployed Application: https://polar-refuge-82117.herokuapp.com
+
+  ![image](https://user-images.githubusercontent.com/86697117/144913719-17a0804e-a735-4d39-b5f8-e734004ad0f0.png)
 
   ***************************************************************
   ## Table of Contents
