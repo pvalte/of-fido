@@ -1,4 +1,4 @@
-<section>
+
   <section class="content_flow">
   <div class="col">
     <div class="avatar"></div>
@@ -9,7 +9,7 @@
   </div>
 	 <div class="col"><div class="user-deco"></div>
    </div>
-   <div class="col">
+   
 {{#if pets.length}}
 
   {{!-- <ol>
@@ -19,15 +19,16 @@
     </li>
     {{/each}}
   </ol> --}}
+
   {{#each pets as |pet|}}
+  <div class="col" >
      <div class="cardly_pets">
        {{> pet-info pet }}
-     </div>
+     </div></div>
       {{/each}}
-   
+    
 {{else}}
   <h3>You haven't liked any of our pets yet!</h3>
 {{/if}}
-   </div>
-</section>
+  
 </section>
