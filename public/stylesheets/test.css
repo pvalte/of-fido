@@ -1,15 +1,26 @@
 @charset "UTF-8";
 .container {
 	background-color: #FFFFFF;
-	width: 90%;
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	border-bottom-width: 0px;
 	padding-left: 0px;
 	padding-top: 0px;
 	padding-right: 0px;
-	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 100vh;
 }
+
+main {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	flex: 1 0 auto;
+}
+
 .row {
 	width: 100%;
 	margin-top: 0px;
@@ -71,12 +82,12 @@
 	padding-bottom: 25px;
 	background-color: #B3B3B3;
 	clear: left;
+	flex: 0 0 auto;
 }
 .container .secondary_header ul {
 	margin-top: 0%;
-	margin-right: auto;
+
 	margin-bottom: 0px;
-	margin-left: auto;
 	padding-top: 0px;
 	padding-right: 0px;
 	padding-bottom: 15px;
