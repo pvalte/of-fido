@@ -669,13 +669,14 @@ margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: auto;
     float: top;
   }
+  
   .form {
     background-color: white;
     width: 400px;
-    /* border-radius: 8px; */
+    border-radius: 8px;
     padding: 20px 40px;
     box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
   }
@@ -714,7 +715,7 @@ outline: #A5A5A5;
   .btn_deco{
 	  cursor: pointer;
 	  height: 30px;
-	  width: 70px;;
+	  width: 70px;
   }
 
   .btn_deco:hover{
