@@ -432,6 +432,9 @@ nav a{
 	padding-left: 25px;
 	padding-right: 25px;
 }
+.col{
+	margin: 0;
+}
 }
 
 @media (min-width: 1001px) {
@@ -499,8 +502,7 @@ nav a{
   background: white;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
   font-family: roboto;
-  text-align: center;
-
+  justify-content: center;
 }
 .card-image {
   grid-area: image;
@@ -576,16 +578,16 @@ nav a{
 	display: flex;
 	 flex-flow: row wrap;
 	column-gap: 1em;
-	justify-content: space-between;
+	justify-content: center;
 	padding-bottom: 25px;
 }
 .browse_able > *{
-	flex: 0 1 25%;
+	/* flex: 0 1 25%; */
 }
 .browse_all{
 	display: flex;
 	 flex-flow: row wrap;
-	justify-content: space-between;
+	justify-content: space-around;
     flex-direction: row;
     padding-bottom: 15px;
     padding-top:15px;
@@ -596,8 +598,9 @@ nav a{
     
 }
 .col{
-	
+	margin: 0 25px 0 25px;	
 }
+
 .cardly_pets{
   display: grid;
   padding-top: 20px;
