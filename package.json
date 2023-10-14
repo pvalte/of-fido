@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Benrowen5/ok-fido.git"
+    "url": "git+https://github.com/pvalte/ok-fido.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Benrowen5/ok-fido/issues"
+    "url": "https://github.com/pvalte/ok-fido/issues"
   },
-  "homepage": "https://github.com/Benrowen5/ok-fido#readme",
+  "homepage": "https://github.com/pvalte/ok-fido#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "chalk": "^4.0.0",
